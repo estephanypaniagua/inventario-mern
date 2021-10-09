@@ -1,18 +1,16 @@
 import express from "express";
+import { setupRoutes } from "./routes";
 
-const app = express();
+//Creas aplicación
+const app = express(); //usa express
 
-app.use(express.json())
+//Configuración de la aplicación
+app.use(express.json()); //entiende json
 
-app.get("/", (request, response)=>{
-    return response.send("Hola mundo");
-})
+//Seteo de rutas
+setupRoutes(app);
 
-app.post("/", (request, response)=>{
-    const data = request.body;
-    return response.send(data);
-})
-
+//Levanta la aplicación
 app.listen(3000, "0.0.0.0", ()=>{
     console.log("Servidor escuchando en el puerto 3000")
 })
