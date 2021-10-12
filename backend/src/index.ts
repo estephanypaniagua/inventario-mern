@@ -1,4 +1,5 @@
 import express from "express";
+import { startConnection } from "./db";
 import { setupRoutes } from "./routes";
 
 //Creas aplicación
@@ -11,6 +12,7 @@ app.use(express.json()); //entiende json
 setupRoutes(app);
 
 //Levanta la aplicación
-app.listen(3000, "0.0.0.0", ()=>{
+app.listen(3000, "0.0.0.0", async () => {
     console.log("Servidor escuchando en el puerto 3000")
+    await startConnection();
 })

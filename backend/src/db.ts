@@ -2,9 +2,9 @@ import { connect } from "mongoose";
 
 // const URI = "tipo_db://user:password@host:puerto/database";
 // const URI = "tipo_db://host:puerto/database";
-const URI = "mongodb://localhost:27017/test";
+const URI = "mongodb://localhost:5001/test";
 
-const startConnection = async () => {
+export const startConnection = async () => {
     try {
         await connect(URI);
         console.log("Conexion con la base de datos exitosa");    
